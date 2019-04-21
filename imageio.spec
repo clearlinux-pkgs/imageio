@@ -4,7 +4,7 @@
 #
 Name     : imageio
 Version  : 2.5.0
-Release  : 2
+Release  : 3
 URL      : https://files.pythonhosted.org/packages/69/4a/0387d708394d5e25d95b1abe427c301614152d1bebea18d9b06fa7199704/imageio-2.5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/69/4a/0387d708394d5e25d95b1abe427c301614152d1bebea18d9b06fa7199704/imageio-2.5.0.tar.gz
 Summary  : Library for reading and writing a wide range of image, video, scientific, and volumetric data formats.
