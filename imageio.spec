@@ -4,13 +4,14 @@
 #
 Name     : imageio
 Version  : 2.8.0
-Release  : 9
+Release  : 10
 URL      : https://files.pythonhosted.org/packages/ea/59/c6d568a309cf4c1b8e091bd8630c590a57f2e068a8e4114e1f36ee0d8e4f/imageio-2.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ea/59/c6d568a309cf4c1b8e091bd8630c590a57f2e068a8e4114e1f36ee0d8e4f/imageio-2.8.0.tar.gz
 Summary  : Library for reading and writing a wide range of image, video, scientific, and volumetric data formats.
 Group    : Development/Tools
 License  : BSD-2-Clause
 Requires: imageio-bin = %{version}-%{release}
+Requires: imageio-license = %{version}-%{release}
 Requires: imageio-python = %{version}-%{release}
 Requires: imageio-python3 = %{version}-%{release}
 Requires: Pillow
@@ -32,9 +33,18 @@ BuildRequires : numpy
 %package bin
 Summary: bin components for the imageio package.
 Group: Binaries
+Requires: imageio-license = %{version}-%{release}
 
 %description bin
 bin components for the imageio package.
+
+
+%package license
+Summary: license components for the imageio package.
+Group: Default
+
+%description license
+license components for the imageio package.
 
 
 %package python
@@ -50,6 +60,7 @@ python components for the imageio package.
 Summary: python3 components for the imageio package.
 Group: Default
 Requires: python3-core
+Provides: pypi(imageio)
 
 %description python3
 python3 components for the imageio package.
@@ -64,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582076664
+export SOURCE_DATE_EPOCH=1582937417
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -80,6 +91,8 @@ python3 setup.py build
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/imageio
+cp %{_builddir}/imageio-2.8.0/LICENSE %{buildroot}/usr/share/package-licenses/imageio/c3f3ee58b67ca6a8d73f562dd42eda4e897eb1c0
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -92,6 +105,10 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 /usr/bin/imageio_download_bin
 /usr/bin/imageio_remove_bin
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/imageio/c3f3ee58b67ca6a8d73f562dd42eda4e897eb1c0
 
 %files python
 %defattr(-,root,root,-)
