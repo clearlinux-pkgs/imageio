@@ -4,7 +4,7 @@
 #
 Name     : imageio
 Version  : 2.10.1
-Release  : 25
+Release  : 26
 URL      : https://files.pythonhosted.org/packages/cb/87/d406597e3cbcbb4d4a5ca30c822152f8f7556b0ca65824ad8fb4c169b712/imageio-2.10.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/cb/87/d406597e3cbcbb4d4a5ca30c822152f8f7556b0ca65824ad8fb4c169b712/imageio-2.10.1.tar.gz
 Summary  : Library for reading and writing a wide range of image, video, scientific, and volumetric data formats.
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635347722
+export SOURCE_DATE_EPOCH=1635741340
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
